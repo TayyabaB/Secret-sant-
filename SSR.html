@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Santa Reveal</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #secretSantaGif {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <img id="secretSantaGif" alt="Christmas GIF">
+
+    <script>
+        // Array of GIF file names
+        var gifNames = [
+            'gif1.gif',
+            'gif2.gif',
+            // Add more GIF file names as needed
+        ];
+
+        // Function to set the src attribute of the img element to a random GIF file
+        function setRandomGifSource() {
+            // Choose a random GIF from the array
+            var randomIndex = Math.floor(Math.random() * gifNames.length);
+            var randomGif = gifNames[randomIndex];
+
+            // Get the file path based on the current location of the HTML file
+            var filePath = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
+            var gifPath = filePath + 'gifs/' + randomGif; // Assumes a 'gifs' folder
+
+            // Set the src attribute of the img element to the random GIF file
+            document.getElementById("secretSantaGif").src = gifPath;
+        }
+
+        // Call the function to set a random GIF source
+        setRandomGifSource();
+    </script>
+</body>
+</html>
